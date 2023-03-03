@@ -1,9 +1,0 @@
-node_modules/
-src/
-.eslintrc.json
-.gitignore
-.npmignore
-.npmrc
-.todo
-package-lock.json
-tsconfig.json
