@@ -1,22 +1,20 @@
 export abstract class Base<Options> {
 
-  private _defaultOptions: Options;
   private _options: Options;
 
-  constructor(defaultOptions: Options, options?: Partial<Options>) {
-    this._defaultOptions = defaultOptions;
-    this._options = { ...this._defaultOptions, ...options };
+  constructor(options: Options) {
+    this._options = options;
   }
 
   get options(): Options {
     return this._options;
   }
 
-  set options(options: Options) {
+  set options(options: Options|Partial<Options>) {
     this._options = { ...this._options, ...options };
   }
 
-  setOptions(options: Options): void {
+  setOptions(options: Options|Partial<Options>): void {
     this.options = options;
   }
 }

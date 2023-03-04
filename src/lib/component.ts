@@ -24,8 +24,6 @@ export abstract class Component<Options> extends Base<Options> {
     this._buffer = buffer;
   }
 
-  abstract write(...args: any): void;
-
   protected _updateBuffer(): void {
     this._updateBuffer$.next(this._buffer);
   }
