@@ -19,12 +19,17 @@ export class Buffer {
     this._lines -= nbLines;
   }
 
-  ln() {
+  ln(): void {
     this.write('\u000A');
     this._lines++;
   }
 
-  write(buffer: string) {
+  matchNewLines(buffer: string): void {
+    const matchNewLines = buffer.match(/\n/g);
+    this._lines += (matchNewLines?.length) ? matchNewLines.length : 0;
+  }
+
+  write(buffer: string): void {
     this._stdout.write(buffer, this._encoding);
   }
 }
